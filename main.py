@@ -14,8 +14,13 @@ API_URL = os.environ["API_URL"]
 
 # 送信する時間 下記の場合　毎日0時0分0秒に送信
 SEND_HOUR = 0
+# 時間をグリニッジ標準時に合わせる
+SEND_HOUR -= 9
+if SEND_HOUR < 0:
+    SEND_HOUR += 24
 SEND_MINUTE = 0
 SEND_SECOND = 0
+
 
 intents = discord.Intents.default()
 client = discord.Client(intents=intents)
